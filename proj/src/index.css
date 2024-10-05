@@ -1,0 +1,136 @@
+body {
+  text-align: center;
+  font-size: 18px;
+}
+
+/* フォントサイズ */
+
+.normal_font_size {
+  font-size: 1.0em;
+}
+
+.little_font_size {
+  font-size: 0.8em;
+}
+
+.title_font_size {
+  font-size: 1.5em;
+}
+
+.return_font_size {
+  font-size: 0.6em;
+}
+
+.battle_status_font_size {
+  font-size: 0.6em;
+}
+
+/* フォント色 */
+
+.color_black {
+  color: #000000;
+}
+
+.color_gray {
+  color: #888888;
+}
+
+.color_white {
+  color: #ffffff;
+}
+
+.color_red {
+  color: #ff0000;
+}
+
+/* 背景色 */
+
+.background_color_white {
+  background-color: #FFFFFF;
+}
+
+.background_color_blue {
+  background-color: #6666FF;
+}
+
+.background_color_light_blue {
+  background-color: #88aaFF;
+}
+
+.background_color_button_disable {
+  background-color: #cccccc;
+}
+
+/* border 関連 */
+
+.no_border {
+  border: 0px;
+}
+
+.border_round { /* 丸みをつける */
+  border-radius:10px;
+  padding: 10px 10px;
+}
+
+.border_round_min { /* 丸みをつける */
+  border-radius:5px;
+  padding: 2px 2px;
+}
+
+.point_td_border {
+  border: 0px;
+  border-bottom: 1px solid white;
+}
+
+/* パディング */
+
+.padding_all_5 {
+  padding: 5px;
+}
+
+.padding_top_10 {
+  padding: 10px 0 0 0;
+}
+
+/* 配置など */
+
+.margin_auto {/* 左右中央*/
+  margin: auto;
+}
+
+.vertical_align_top {/* 上よせ */
+  vertical-align: top;
+}
+
+.vertical_align_middle {/* 中段よせ */
+  vertical-align: middle;
+}
+
+.text_align_right {/* 右よせ */
+  text-align: right;
+}
+
+.display_inline_block {/* ウィンドウの幅が広いときは横並び 狭いときは縦にする */
+  display: inline-block;
+}
+
+/* 表示サイズ */
+
+.character_image_size {/* 棒人形 */
+  height: 4em;
+}
+
+.character_visual_size {/* 対戦相手 */
+  font-size: 4em;
+}
+
+/* その他 */
+
+.width_fit_content {/* 子要素に幅をあわせる */
+  width: fit-content;
+}
+
+.under_line_none {/* アンダーラインなし */
+  text-decoration: none;
+}
+
