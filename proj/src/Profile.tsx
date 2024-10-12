@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { PlayerProfileTable } from "./parts/PlayerProfileTable";
 import { PlayerImageFile } from "./models/PlayerProfile";
 import { InputSubmitProfile } from "./parts/InputSubmitProfile";
+import { AfterRendering } from "./parts/AfterRendering";
 
 export const Profile:FC = () => {
   const navigate  = useNavigate();
@@ -36,13 +37,10 @@ export const Profile:FC = () => {
                 <InputSubmitProfile/>
               </form>
             </div>
-
           </div>
         </article>
       </main>
-      <footer className="padding_top_10">
-        <span className="little_font_size color_gray">since 2024/10</span>
-      </footer>
+      <AfterRendering/>
     </>
   );
 };

@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
+import { AfterRendering } from "./parts/AfterRendering";
 
 export const Top:FC = () => {
   return (
@@ -17,9 +18,7 @@ export const Top:FC = () => {
           <p>懐かしい JBS クエストの習作です。</p>
         </article>
       </main>
-      <footer className="padding_top_10">
-        <span className="little_font_size color_gray">since 2024/10</span>
-      </footer>
+      <AfterRendering/>
     </>
   );
 };

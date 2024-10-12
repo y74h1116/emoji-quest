@@ -1,24 +1,46 @@
 import './App.css'
 import { RecoilRoot } from 'recoil'
-import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, RouteObject, RouterProvider, Outlet, ScrollRestoration } from 'react-router-dom'
 import { Top } from './Top'
 import { Profile } from './Profile'
 import { Opponent } from './Opponent'
 import { Battle } from './Battle'
+import { FC } from 'react'
+
+const Layout:FC = () => {
+  return (
+    <div>
+      <Outlet />
+      <footer className="padding_top_10">
+        <span className="little_font_size color_gray">since 2024/10</span>
+      </footer>
+      <ScrollRestoration />
+    </div>
+  );
+};
+
+const routes: RouteObject[] = [
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      { index: true, element: <Top/> },
+      { path: "/profile", element: <Profile/>},
+      { path: "/opponent", element: <Opponent/>},
+      { path: "/battle", element: <Battle/>},
+      { path: "/*", element: <Top/>},
+    ],
+  },
+];
+
+const router = createBrowserRouter(routes);
 
 function App() {
   return (
     <RecoilRoot>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/profile" element={<Profile/>}/>
-          <Route path="/opponent" element={<Opponent/>}/>
-          <Route path="/battle" element={<Battle/>}/>
-          <Route path="/*" element={<Top/>}/>
-        </Routes>
-      </BrowserRouter>
+      <RouterProvider router={router} />
     </RecoilRoot>
   )
-}
+};
 
 export default App
