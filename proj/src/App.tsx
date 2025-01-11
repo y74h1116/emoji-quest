@@ -12,7 +12,7 @@ const Layout:FC = () => {
     <div>
       <Outlet />
       <footer className="padding_top_10">
-        <span className="little_font_size color_gray">since 2024/10</span>
+        <span className="little_font_size color_gray">© 2024 y74h1116.com</span>
       </footer>
       <ScrollRestoration />
     </div>
