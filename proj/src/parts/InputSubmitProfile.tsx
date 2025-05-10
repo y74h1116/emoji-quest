@@ -1,16 +1,15 @@
 import { FC } from "react";
-import { useRecoilValue } from "recoil";
-import { DisplayAttack, DisplayDefense, DisplayMaxHp, DisplayQuickness, displaySkill } from "../models/DisplayProfile";
+import { DisplayAttack, DisplayDefense, DisplayMaxHp, DisplayQuickness } from "../models/DisplayProfile";
 import { isValidSkill, SkillsTotalMax } from "../models/SkillPoint";
-import { playerNameAtom } from "../models/PlayerProfile";
+import { useAppSelector } from "../models/store";
 
 export const validPlayerProfile = () => {
-  const playerName = useRecoilValue(playerNameAtom);
+  const playerName = useAppSelector((state) => state.playerName.value);
 
-  const displayMaxHp = useRecoilValue(displaySkill(DisplayMaxHp));
-  const displayAttack = useRecoilValue(displaySkill(DisplayAttack)); 
-  const displayDefense = useRecoilValue(displaySkill(DisplayDefense));
-  const displayQuickness = useRecoilValue(displaySkill(DisplayQuickness));
+  const displayMaxHp = useAppSelector((state) => state.displaySkill.value[DisplayMaxHp]);
+  const displayAttack = useAppSelector((state) => state.displaySkill.value[DisplayAttack]);
+  const displayDefense = useAppSelector((state) => state.displaySkill.value[DisplayDefense]);
+  const displayQuickness = useAppSelector((state) => state.displaySkill.value[DisplayQuickness]);
 
   const maxHp = parseInt(displayMaxHp);
   const attack = parseInt(displayAttack);

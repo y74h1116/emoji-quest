@@ -1,11 +1,12 @@
 import './App.css'
-import { RecoilRoot } from 'recoil'
 import { createBrowserRouter, RouteObject, RouterProvider, Outlet, ScrollRestoration } from 'react-router-dom'
 import { Top } from './Top'
 import { Profile } from './Profile'
 import { Opponent } from './Opponent'
 import { Battle } from './Battle'
 import { FC } from 'react'
+import { Provider } from 'react-redux'
+import { store } from './models/store'
 
 const Layout:FC = () => {
   return (
@@ -37,9 +38,9 @@ const router = createBrowserRouter(routes);
 
 function App() {
   return (
-    <RecoilRoot>
+    <Provider store={store}>
       <RouterProvider router={router} />
-    </RecoilRoot>
+    </Provider>
   )
 };
 

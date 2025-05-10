@@ -1,7 +1,7 @@
 import { FC } from "react";
-import { useRecoilValue } from "recoil";
-import { DisplayAttack, DisplayDefense, DisplayMaxHp, DisplayQuickness, displaySkill } from "../models/DisplayProfile";
+import { DisplayAttack, DisplayDefense, DisplayMaxHp, DisplayQuickness } from "../models/DisplayProfile";
 import { SkillsTotalMax } from "../models/SkillPoint";
+import { useAppSelector } from "../models/store";
 
 type SkillPointTotalProps = {
   kind: string;
@@ -11,10 +11,10 @@ export const SkillPointRest = 'SkillPointRest';
 
 // 入力済のポイントの合計値もしくは未入力のポイント数を表示
 export const SkillPointState:FC<SkillPointTotalProps> = (props: SkillPointTotalProps) => {
-  const displayMaxHp = useRecoilValue(displaySkill(DisplayMaxHp));
-  const displayAttack = useRecoilValue(displaySkill(DisplayAttack)); 
-  const displayDefense = useRecoilValue(displaySkill(DisplayDefense));
-  const displayQuickness = useRecoilValue(displaySkill(DisplayQuickness));
+  const displayMaxHp = useAppSelector((state) => state.displaySkill.value[DisplayMaxHp]);
+  const displayAttack = useAppSelector((state) => state.displaySkill.value[DisplayAttack]);
+  const displayDefense = useAppSelector((state) => state.displaySkill.value[DisplayDefense]);
+  const displayQuickness = useAppSelector((state) => state.displaySkill.value[DisplayQuickness]);
 
   const total = Number(displayMaxHp) + Number(displayAttack)
     + Number(displayDefense) + Number(displayQuickness);
