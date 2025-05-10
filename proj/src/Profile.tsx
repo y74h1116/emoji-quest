@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import { PlayerProfileTable } from "./parts/PlayerProfileTable";
-import { PlayerImageFile } from "./models/PlayerProfile";
 import { InputSubmitProfile } from "./parts/InputSubmitProfile";
 import { AfterRendering } from "./parts/AfterRendering";
+import { PlayerImageFile } from "./models/PlayerProfile";
 
 export const Profile:FC = () => {
   const navigate  = useNavigate();

@@ -1,8 +1,8 @@
 import { FC } from "react";
-import { useRecoilState, useSetRecoilState } from "recoil";
-import { playerSkill } from "../models/PlayerProfile";
-import { displaySkill } from "../models/DisplayProfile";
 import { SkillMax, SkillMin } from "../models/SkillPoint";
+import { useAppDispatch, useAppSelector } from "../models/store";
+import { updatePlayerSkill } from "../models/PlayerProfileSkill";
+import { updateDisplaySkill } from "../models/DisplayProfile";
 
 type InputSkillPointProps = {
   playerSkillKind: string;
@@ -11,9 +11,8 @@ type InputSkillPointProps = {
 
 // ポイント設定
 export const InputPlayerSkillPoint:FC<InputSkillPointProps> = (props: InputSkillPointProps) => {
-  const setPlayerSkill = useSetRecoilState(playerSkill(props.playerSkillKind));
-
-  const [displaySkillPoint, setDisplaySkillFunc] = useRecoilState(displaySkill(props.displaySkillKind));
+  const appDispatch = useAppDispatch();
+  const displaySkillPoint = useAppSelector((state) => state.displaySkill.value[props.displaySkillKind]);
 
   // 各項目が変更されたときの処理
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,10 +22,11 @@ export const InputPlayerSkillPoint:FC<InputSkillPointProps> = (props: InputSkill
     // 整数値を保存
     const skillPoint = parseInt(slicedValue);
     if (!isNaN(skillPoint)) {
-      setPlayerSkill(skillPoint);
+      appDispatch(updatePlayerSkill({ key: props.playerSkillKind, value: skillPoint }));
     }
     // 表示内容を更新
-    setDisplaySkillFunc(slicedValue);
+    appDispatch(updateDisplaySkill({ key: props.displaySkillKind, value: slicedValue }));
+
   };
 
   // css

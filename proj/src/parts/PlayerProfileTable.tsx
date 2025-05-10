@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { PlayerSkillMaxHp, PlayerSkillAttack, PlayerSkillDefense, PlayerSkillQuickness } from "../models/PlayerProfile";
+import { PlayerSkillMaxHp, PlayerSkillAttack, PlayerSkillDefense, PlayerSkillQuickness } from "../models/PlayerProfileSkill";
 import { DisplayAttack, DisplayDefense, DisplayMaxHp, DisplayQuickness } from "../models/DisplayProfile";
 import { InputPlayerSkillPoint } from "./InputPlayerSkillPoint";
 import { InputPlayerName } from "./InputPlayerName";
